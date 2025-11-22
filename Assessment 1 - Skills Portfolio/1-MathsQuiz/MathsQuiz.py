@@ -6,7 +6,7 @@ import random
 import os
 import pygame
 
-# Store all file paths
+# Store main file paths
 GIF_PATH = r"C:\Users\aisha\OneDrive\Documents\GitHub\skills-portfolio-abeera346\Assessment 1 - Skills Portfolio\1-MathsQuiz\Assets\backgrounds\welcome_bg.gif"
 START_BTN_PATH = r"C:\Users\aisha\OneDrive\Documents\GitHub\skills-portfolio-abeera346\Assessment 1 - Skills Portfolio\1-MathsQuiz\Assets\buttons\start.png"
 
@@ -37,7 +37,7 @@ VICTORY_MP3 = os.path.join(SND_DIR, "victory.mp3")
 FAIL_MP3 = os.path.join(SND_DIR, "fail.mp3")
 
 
-# Shows moving background images
+# Shows background images or gifs
 class AnimatedGIF(Label):
     def __init__(self, parent, gif_path, width, height):
         super().__init__(parent)
@@ -56,14 +56,14 @@ class AnimatedGIF(Label):
         self.config(image=self.frames[0])
         self.animate()
 
-    # Make GIF loop forever
+    # Make GIF loop 
     def animate(self):
         self.index = (self.index + 1) % len(self.frames)
         self.config(image=self.frames[self.index])
         self.after(50, self.animate)
 
 
-# Make window appear slowly
+# Make window fade in
 def fade_in(window, alpha=0.0):
     window.attributes("-alpha", alpha)
     if alpha < 1:
