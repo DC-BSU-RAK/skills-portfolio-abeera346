@@ -422,33 +422,51 @@ class CyberMathApp:
         bg = AnimatedGIF(self.root, DIFF_GIF, 600, 600)
         bg.place(x=0, y=0, relwidth=1, relheight=1)
 
-        Label(
-            self.root, text="Select Difficulty", font=("Consolas", 22, "bold"),
-            fg="#00FFFF", bg="#05000A"
-        ).place(relx=0.5, rely=0.18, anchor="center")
+        # Load button images (all same size)
+        button_size = (200, 60)
+        try:
+            # Load and resize button images
+            trainee_img = Image.open(os.path.join(BTN_DIR, "trainee.png")).resize(button_size, Image.LANCZOS)
+            runner_img = Image.open(os.path.join(BTN_DIR, "runner.png")).resize(button_size, Image.LANCZOS)
+            expert_img = Image.open(os.path.join(BTN_DIR, "expert.png")).resize(button_size, Image.LANCZOS)
+            back_img = Image.open(os.path.join(BTN_DIR, "back.png")).resize((120, 40), Image.LANCZOS)
+            
+            self.trainee_photo = ImageTk.PhotoImage(trainee_img)
+            self.runner_photo = ImageTk.PhotoImage(runner_img)
+            self.expert_photo = ImageTk.PhotoImage(expert_img)
+            self.back_photo_small = ImageTk.PhotoImage(back_img)
+        except:
+            # Fallback colored buttons if images not found
+            trainee_img = Image.new("RGBA", button_size, "#0a0433")
+            runner_img = Image.new("RGBA", button_size, "#0a0433")
+            expert_img = Image.new("RGBA", button_size, "#0a0433")
+            back_img = Image.new("RGBA", (120, 40), "#0a0433")
+            
+            self.trainee_photo = ImageTk.PhotoImage(trainee_img)
+            self.runner_photo = ImageTk.PhotoImage(runner_img)
+            self.expert_photo = ImageTk.PhotoImage(expert_img)
+            self.back_photo_small = ImageTk.PhotoImage(back_img)
 
+        # Difficulty buttons with images (all same size)
         Button(
-            self.root, text="Trainee Level", font=("Consolas", 16, "bold"),
-            fg="#00FFAA", bg="#080018", relief="flat", cursor="hand2",
-            command=lambda: [self.play_click(), self.start_quiz("easy")]
+            self.root, image=self.trainee_photo, bg="#080018", relief="flat", 
+            cursor="hand2", command=lambda: [self.play_click(), self.start_quiz("easy")]
         ).place(relx=0.5, rely=0.40, anchor="center")
 
         Button(
-            self.root, text="Runner Level", font=("Consolas", 16, "bold"),
-            fg="#00AFFF", bg="#080018", relief="flat", cursor="hand2",
-            command=lambda: [self.play_click(), self.start_quiz("moderate")]
+            self.root, image=self.runner_photo, bg="#080018", relief="flat", 
+            cursor="hand2", command=lambda: [self.play_click(), self.start_quiz("moderate")]
         ).place(relx=0.5, rely=0.53, anchor="center")
 
         Button(
-            self.root, text="Firewall Expert", font=("Consolas", 16, "bold"),
-            fg="#FF00FF", bg="#080018", relief="flat", cursor="hand2",
-            command=lambda: [self.play_click(), self.start_quiz("advanced")]
+            self.root, image=self.expert_photo, bg="#080018", relief="flat", 
+            cursor="hand2", command=lambda: [self.play_click(), self.start_quiz("advanced")]
         ).place(relx=0.5, rely=0.66, anchor="center")
 
+        # Back button with image
         Button(
-            self.root, text="Back", font=("Consolas", 14),
-            fg="#999999", bg="#05000A", relief="flat", cursor="hand2",
-            command=lambda: [self.play_click(), self.show_codename_screen()]
+            self.root, image=self.back_photo_small, bg="#05000A", relief="flat", 
+            cursor="hand2", command=lambda: [self.play_click(), self.show_codename_screen()]
         ).place(relx=0.08, rely=0.08, anchor="center")
 
     # Start the math quiz
