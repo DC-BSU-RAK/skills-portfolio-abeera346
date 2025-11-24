@@ -37,7 +37,7 @@ VICTORY_MP3 = os.path.join(SND_DIR, "victory.mp3")
 FAIL_MP3 = os.path.join(SND_DIR, "fail.mp3")
 
 
-# Shows background images or gifs
+# Shows background images and the gifs
 class AnimatedGIF(Label):
     def __init__(self, parent, gif_path, width, height):
         super().__init__(parent)
