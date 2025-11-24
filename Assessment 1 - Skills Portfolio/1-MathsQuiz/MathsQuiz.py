@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import *
+from tkinter import * # To import all tkinter features to use them directly 
 from tkinter import ttk
 from PIL import Image, ImageTk, ImageSequence
 import random
