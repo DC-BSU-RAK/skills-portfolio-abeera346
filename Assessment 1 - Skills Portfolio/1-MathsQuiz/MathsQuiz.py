@@ -56,7 +56,7 @@ class AnimatedGIF(Label):
         self.config(image=self.frames[0])
         self.animate()
 
-    # Make GIF loop 
+    # Makes GIF loop 
     def animate(self):
         self.index = (self.index + 1) % len(self.frames)
         self.config(image=self.frames[self.index])
