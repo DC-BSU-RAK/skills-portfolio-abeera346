@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import *
+from tkinter import * # Import all tkinter features to use them directly 
 import random
 import os
 import pygame
