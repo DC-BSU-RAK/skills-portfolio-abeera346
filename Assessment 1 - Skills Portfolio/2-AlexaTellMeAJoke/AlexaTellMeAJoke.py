@@ -1,10 +1,9 @@
 import tkinter as tk
-from tkinter import *
+from tkinter import * # Import all tkinter features to use them directly 
 import random
 import os
 import pygame
-import threading
-import time
+import threading 
 from PIL import Image, ImageTk, ImageSequence
 
 # Define color scheme for the application interface
