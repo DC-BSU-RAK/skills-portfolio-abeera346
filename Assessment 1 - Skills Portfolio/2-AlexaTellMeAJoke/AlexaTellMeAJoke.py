@@ -3,8 +3,7 @@ from tkinter import *
 import random
 import os
 import pygame
-import threading
-import time
+import threading 
 from PIL import Image, ImageTk, ImageSequence
 
 # Define color scheme for the application interface
