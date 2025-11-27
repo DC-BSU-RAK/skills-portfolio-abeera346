@@ -426,13 +426,13 @@ class CyberMathApp:
         button_frame = tk.Frame(self.root, bg="#0a0433")
         button_frame.place(relx=0.5, rely=0.5, anchor="center", width=300, height=300)
 
-        # Difficulty buttons as text buttons with requested colors
+        # Difficulty buttons  
         trainee_btn = Button(
             button_frame,
             text="TRAINEE MODE\n(Easy)",
             font=("Consolas", 14, "bold"),
-            fg="#0093b3",  # Requested text color
-            bg="#0a0433",  # Requested background color
+            fg="#0093b3",  
+            bg="#0a0433",   
             relief="flat",
             width=15,
             height=2,
@@ -445,8 +445,8 @@ class CyberMathApp:
             button_frame,
             text="RUNNER MODE\n(Moderate)",
             font=("Consolas", 14, "bold"),
-            fg="#0093b3",  # Requested text color
-            bg="#0a0433",  # Requested background color
+            fg="#0093b3",   
+            bg="#0a0433",   
             relief="flat",
             width=15,
             height=2,
@@ -459,8 +459,8 @@ class CyberMathApp:
             button_frame,
             text="EXPERT MODE\n(Advanced)", 
             font=("Consolas", 14, "bold"),
-            fg="#0093b3",  # Requested text color
-            bg="#0a0433",  # Requested background color
+            fg="#0093b3",   
+            bg="#0a0433",  
             relief="flat",
             width=15,
             height=2,
